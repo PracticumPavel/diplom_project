@@ -5,6 +5,7 @@ from sqlalchemy.orm import Session
 from database import SessionLocal, engine
 from models import Base
 import crud
+import uvicorn
 
 Base.metadata.create_all(bind=engine)
 
@@ -34,3 +35,11 @@ async def create_item(
     crud.create_item(db, name, description)
     items = crud.get_items(db)
     return templates.TemplateResponse("index.html", {"request": request, "items": items})
+
+
+def main():
+    uvicorn.run(app)
+
+
+if __name__ == "__main__":
+    main()
