@@ -7,6 +7,7 @@ from models import Base
 import crud
 import uvicorn
 
+
 Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
