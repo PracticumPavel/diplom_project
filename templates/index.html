@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Items List</h1>
+<form action="/items/" method="post">
+    <input type="text" name="name" placeholder="Name" required>
+    <input type="text" name="description" placeholder="Description">
+    <button type="submit">Add Item</button>
+</form>
+
+<ul>
+    {% for item in items %}
+    <li>{{ item.name }} - {{ item.description }}</li>
+    {% endfor %}
+</ul>
+{% endblock %}
